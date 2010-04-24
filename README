@@ -12,10 +12,6 @@ src
 |
 +-3rd
 
-*** BUILDING ON WINDOWS ***
+*** BUILDING ON LINUX OR WINDOWS ***
 
-make -f Makefile.win32
-
-*** BUILDING ON LINUX ***
-
-make -f Makefile.linux
+make -f Makefile.avr
