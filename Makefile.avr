@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 PLATFORM = avr
-TARGET = lib/$(PLATFORM)/libxsvf.a
+TARGET = lib/$(PLATFORM)/avrutil.a
 MCU = at90usb162
 F_CPU = 16000000
 
