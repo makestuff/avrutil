@@ -15,14 +15,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 PLATFORM = avr
-TARGET = lib/$(PLATFORM)/avrutil.a
+TARGET = lib/$(PLATFORM)/$(MCU)/avrutil.a
 MCU = at90usb162
 F_CPU = 16000000
 
 OBJDIR = .build
 DEPDIR = .deps
 CC_SRCS = $(shell ls *.c)
-CC_OBJS = $(CC_SRCS:%.c=$(OBJDIR)/$(PLATFORM)/%.o)
+CC_OBJS = $(CC_SRCS:%.c=$(OBJDIR)/$(PLATFORM)/$(MCU)/%.o)
 CC = avr-gcc
 AR = avr-ar
 CFLAGS = \
@@ -33,10 +33,10 @@ CFLAGS = \
 all: ../../include $(TARGET)
 
 $(TARGET): $(CC_OBJS)
-	mkdir -p lib/$(PLATFORM)
+	mkdir -p lib/$(PLATFORM)/$(MCU)
 	$(AR) cr $@ $^
 
-$(OBJDIR)/$(PLATFORM)/%.o : %.c
+$(OBJDIR)/$(PLATFORM)/$(MCU)/%.o : %.c
 	$(CC) -c $(CFLAGS) -MMD -MP -MF $(DEPDIR)/$(PLATFORM)/$(@F).d -Wa,-adhlns=$(OBJDIR)/$(PLATFORM)/$<.lst $< -o $@ -DF_CPU=$(F_CPU)
 
 -include Makefile.common
@@ -44,6 +44,6 @@ $(OBJDIR)/$(PLATFORM)/%.o : %.c
 clean: FORCE
 	rm -rf $(OBJDIR) $(DEPDIR) lib Debug Release *.ncb *.suo *.user
 
--include $(shell mkdir -p $(OBJDIR)/$(PLATFORM) $(DEPDIR)/$(PLATFORM) 2>/dev/null) $(wildcard $(DEPDIR)/$(PLATFORM)/*)
+-include $(shell mkdir -p $(OBJDIR)/$(PLATFORM)/$(MCU) $(DEPDIR)/$(PLATFORM)/$(MCU) 2>/dev/null) $(wildcard $(DEPDIR)/$(PLATFORM)/$(MCU)/*)
 
 FORCE:

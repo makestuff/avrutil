@@ -20,13 +20,54 @@
 
 #include "types.h"
 
-void usartInit(void);
-void usartSendByte(uint8 ch);
-void usartSendByteHex(uint8 ch);
-void usartSendWordHex(uint16 ch);
-void usartSendLongHex(uint32 word);
-void usartSendString(const char *s);
-void usartSendFlashString(const char *str);
-uint8 usartGetByte(void);
+void usartInit(
+	#ifdef __AVR_ATmega162__
+		uint8 usart,
+	#endif
+	uint32 baud
+);
+void usartSendByte(
+	#ifdef __AVR_ATmega162__
+		uint8 usart,
+	#endif
+	uint8 ch
+);
+void usartSendByteHex(
+	#ifdef __AVR_ATmega162__
+		uint8 usart,
+	#endif
+	uint8 ch
+);
+void usartSendWordHex(
+	#ifdef __AVR_ATmega162__
+		uint8 usart,
+	#endif
+	uint16 ch
+);
+void usartSendLongHex(
+	#ifdef __AVR_ATmega162__
+		uint8 usart,
+	#endif
+	uint32 word
+);
+void usartSendString(
+	#ifdef __AVR_ATmega162__
+		uint8 usart,
+	#endif
+	const char *s
+);
+void usartSendFlashString(
+	#ifdef __AVR_ATmega162__
+		uint8 usart,
+	#endif
+	const char *s
+);
+uint8 usartGetByte(
+	#ifdef __AVR_ATmega162__
+		uint8 usart
+	#else
+		void
+	#endif
+);
 
 #endif

@@ -14,4 +14,5 @@ src
 
 *** BUILDING ON LINUX OR WINDOWS ***
 
-make -f Makefile.avr
+make -f Makefile.avr                 (for the default at90usb162)
+make -f Makefile.avr MCU=atmega162   (for the atmega162)
