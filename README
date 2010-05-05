@@ -12,7 +12,24 @@ src
 |
 +-3rd
 
-*** BUILDING ON LINUX OR WINDOWS ***
+*** BUILDING ON WINDOWS ***
 
-make -f Makefile.avr                 (for the default at90usb162)
-make -f Makefile.avr MCU=atmega162   (for the atmega162)
+You will need WinAVR (I used WinAVR-20090313) from here:
+
+  http://winavr.sourceforge.net
+
+Then just do this:
+
+  make -f Makefile.avr                 (for the default at90usb162)
+  make -f Makefile.avr MCU=atmega162   (for the atmega162)
+
+
+*** BUILDING ON LINUX ***
+
+You will need gcc-avr and avr-libc, e.g
+
+  sudo apt-get install gcc-avr
+  sudo apt-get install avr-libc
+
+  make -f Makefile.avr                 (for the default at90usb162)
+  make -f Makefile.avr MCU=atmega162   (for the atmega162)
