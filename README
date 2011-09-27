@@ -6,8 +6,8 @@ On Linux you'll need gcc-avr and avr-libc (sudo apt-get install...)
 
 chris@wotan$ curl -sL http://www.swaton.ukfsn.org/bin/makestuff-lindar-20110912.tar.gz | tar zxf -
 chris@wotan$ cd makestuff/libs
-chris@wotan$ ../common/msget.sh avrlib
-chris@wotan$ cd avrlib
+chris@wotan$ ../common/msget.sh avrutil
+chris@wotan$ cd avrutil
 chris@wotan$ make
 
 or, if you want an atmega162 build:
