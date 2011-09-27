@@ -1,35 +1,15 @@
 A utility library for Atmel AVR microcontrollers.
 
-The project build assumes a directory structure like this:
+On Windows you'll need WinAVR (from http://winavr.sourceforge.net)
 
-src
-|
-+-apps
-|
-+-libs
-| |
-| +-avrutil
-|
-+-3rd
+On Linux you'll need gcc-avr and avr-libc (sudo apt-get install...)
 
-*** BUILDING ON WINDOWS ***
+chris@wotan$ curl -sL http://www.swaton.ukfsn.org/bin/makestuff-lindar-20110912.tar.gz | tar zxf -
+chris@wotan$ cd makestuff/libs
+chris@wotan$ ../common/msget.sh avrlib
+chris@wotan$ cd avrlib
+chris@wotan$ make
 
-You will need WinAVR (I used WinAVR-20090313) from here:
+or, if you want an atmega162 build:
 
-  http://winavr.sourceforge.net
-
-Then just do this:
-
-  make -f Makefile.avr                 (for the default at90usb162)
-  make -f Makefile.avr MCU=atmega162   (for the atmega162)
-
-
-*** BUILDING ON LINUX ***
-
-You will need gcc-avr and avr-libc, e.g
-
-  sudo apt-get install gcc-avr
-  sudo apt-get install avr-libc
-
-  make -f Makefile.avr                 (for the default at90usb162)
-  make -f Makefile.avr MCU=atmega162   (for the atmega162)
+chris@wotan$  make MCU=atmega162

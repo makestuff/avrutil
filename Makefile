@@ -28,9 +28,9 @@ AR = avr-ar
 CFLAGS = \
 	-O3 -mmcu=$(MCU) -funsigned-char -funsigned-bitfields -ffunction-sections \
 	-fpack-struct -fshort-enums -finline-limit=20 -Wall -Wstrict-prototypes \
-	-Wundef -std=gnu99 -Wall -pedantic-errors -I../../include
+	-Wundef -std=gnu99 -Wall -pedantic-errors -I../../common
 
-all: ../../include $(TARGET)
+all: $(TARGET)
 
 $(TARGET): $(CC_OBJS)
 	mkdir -p lib/$(PLATFORM)/$(MCU)
@@ -38,8 +38,6 @@ $(TARGET): $(CC_OBJS)
 
 $(OBJDIR)/$(PLATFORM)/$(MCU)/%.o : %.c
 	$(CC) -c $(CFLAGS) -MMD -MP -MF $(DEPDIR)/$(PLATFORM)/$(@F).d -Wa,-adhlns=$(OBJDIR)/$(PLATFORM)/$<.lst $< -o $@ -DF_CPU=$(F_CPU)
-
--include Makefile.common
 
 clean: FORCE
 	rm -rf $(OBJDIR) $(DEPDIR) lib Debug Release *.ncb *.suo *.user

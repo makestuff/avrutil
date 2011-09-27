@@ -18,7 +18,7 @@
 #ifndef USART_H
 #define USART_H
 
-#include "types.h"
+#include "makestuff.h"
 
 void usartInit(
 	#ifdef __AVR_ATmega162__
