@@ -25,8 +25,6 @@
 #define DEBUG_PORT C
 #define DEBUG_BAUD 45
 
-#define CONCAT2(x, y) x##y
-#define CONCAT(x, y) CONCAT2(x, y)
 #define OUT_PORT CONCAT(PORT, DEBUG_PORT)
 #define DDR_PORT CONCAT(DDR, DEBUG_PORT)
 
